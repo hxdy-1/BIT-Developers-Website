@@ -23,25 +23,25 @@
 			class="relative flex flex-col justify-center items-center gap-4 w-full h-dvh overflow-hidden"
 		>
 			<h1
-				class="bit-heading text-9xl text-center jersey-20-regular w-fit"
+				class="bit-heading text-9xl text-center jersey-20-regular w-fit animate-on-scroll animate-top"
 			>
 				<span class="text-(--hero-color)">BIT</span>
 				<span class="text-(--dark-color) -ml-2">Developers</span>
 				<span class="text-(--hero-color) -ml-6">.</span>
 			</h1>
 			<p
-				class="bit-text-primary text-center text-2xl text-(--dark-color) font-semibold"
+				class="bit-text-primary text-center text-2xl text-(--dark-color) font-semibold animate-on-scroll delay-1"
 			>
 				Where Tech Professionals <br />
 				<span class="text-(--hero-color)">Connect & Grow</span>
 			</p>
 			<p
-				class="bit-text-secondary monospace text-sm text-center text-(--dark-color)"
+				class="bit-text-secondary monospace text-sm text-center text-(--dark-color) animate-on-scroll delay-2"
 				>A local community for developers, engineers, and IT
 				professionals. <br />Learn, collaborate, and build the future
 				together.</p
 			>
-			<div class="actionables mt-4 flex gap-4">
+			<div class="actionables mt-4 flex gap-4 animate-on-scroll delay-3">
 				<button class="btn btn-primary"
 					>Join the Community
 					<svg
@@ -63,7 +63,7 @@
 				</button>
 				<button class="btn btn-secondary">Learn More</button>
 			</div>
-			<div class="numbers-container">
+			<div class="numbers-container animate-on-scroll delay-4">
 				<div class="number number-1">
 					<span class="actual-number">10+</span>
 					<span class="number-description">Active Members</span>
@@ -81,16 +81,18 @@
 		<section
 			class="features-section flex flex-col items-center justify-center gap-4"
 		>
-			<h2 class="jersey-20-regular text-7xl text-(--dark-color)"
+			<h2
+				class="jersey-20-regular text-7xl text-(--dark-color) animate-on-scroll animate-top"
 				>Everything You Need to
 				<span class="text-(--hero-color)">Thrive</span></h2
 			>
-			<p class="text-sm monospace text-center text-(--dark-color)"
+			<p
+				class="text-sm monospace text-center text-(--dark-color) animate-on-scroll delay-1"
 				>Our community brings together the best resources and
 				opportunities <br />for tech professionals at every stage of
 				their career.</p
 			>
-			<div class="cards-container">
+			<div class="cards-container animate-on-scroll delay-2">
 				<div class="card">
 					<span class="card-icon">
 						<svg
@@ -209,17 +211,19 @@
 			</div>
 		</section>
 		<section class="welcome-section">
-			<h3 class="jersey-20-regular text-6xl text-(--dark-color)"
+			<h3
+				class="jersey-20-regular text-6xl text-(--dark-color) animate-on-scroll animate-top"
 				>All IT Disciplines Are
 				<span class="text-(--hero-color)">Welcome!</span></h3
 			>
-			<p class="monospace text-sm text-(--dark-color) text-center"
+			<p
+				class="monospace text-sm text-(--dark-color) text-center animate-on-scroll delay-1"
 				>Whether you're into Software Development, DevOps,
 				Cybersecurity, AI/ML, Data, <br />
 				Networking, or System Administration—there's a place for you
 				here.</p
 			>
-			<div class="disciplines-container">
+			<div class="disciplines-container animate-on-scroll delay-1">
 				<div class="discipline">
 					<span class="discipline-icon">
 						<svg
@@ -415,16 +419,18 @@
 			</div>
 		</section>
 		<section class="join-community-section">
-			<h4 class="jersey-20-regular text-6xl text-(--dark-color)"
+			<h4
+				class="jersey-20-regular text-6xl text-(--dark-color) animate-on-scroll animate-top"
 				>Ready to Join Our
 				<span class="text-(--hero-color)">Community?</span></h4
 			>
-			<p class="monospace text-sm text-(--dark-color) text-center"
+			<p
+				class="monospace text-sm text-(--dark-color) text-center animate-on-scroll delay-1"
 				>Connect with thousands of tech professionals, access exclusive
 				resources, <br />
 				and accelerate your career growth.</p
 			>
-			<button class="btn btn-primary mt-8"
+			<button class="btn btn-primary mt-8 animate-on-scroll delay-2"
 				>Join the Community
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
@@ -572,5 +578,27 @@
 			</p>
 		</footer>
 		<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+		<script>
+			document.addEventListener("DOMContentLoaded", () => {
+				const observer = new IntersectionObserver(
+					(entries) => {
+						entries.forEach((entry) => {
+							if (entry.isIntersecting) {
+								entry.target.classList.add("animate-in");
+								observer.unobserve(entry.target);
+							}
+						});
+					},
+					{
+						threshold: 0.15,
+						rootMargin: "0px 0px -100px 0px",
+					},
+				);
+
+				document
+					.querySelectorAll(".animate-on-scroll")
+					.forEach((el) => observer.observe(el));
+			});
+		</script>
 	</body>
 </html>
